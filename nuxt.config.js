@@ -58,7 +58,7 @@ export default {
     theme: {
       dark: false,
       themes: {
-        dark: {
+        light: {
           primary: '#4DC6A9', // green
           text: '#5E5E5E', // gray
           accent: '#FFD029', // orange
