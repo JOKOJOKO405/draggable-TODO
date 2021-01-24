@@ -66,7 +66,9 @@ export default {
           info: colors.teal.lighten1,
           warning: '#F1305F', // pink
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
+          success: colors.green.accent3,
+          gray400: '#BDBDBD', // gray-thin
+          gray300: '#F0F0F0' // gray-thin02
         }
       }
     }
