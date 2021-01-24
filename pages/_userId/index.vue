@@ -18,6 +18,10 @@
         <v-icon>mdi-logout</v-icon>
       </v-btn>
     </v-app-bar>
+    <v-container>
+      <Card />
+    </v-container>
+    <AddCardBtn />
   </v-container>
 </template>
 
