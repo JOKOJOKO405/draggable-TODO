@@ -7,14 +7,12 @@
           <v-form ref="form" v-model="valid" lazy-validation>
             <v-text-field
               v-model="name"
-              :rules="nameRules"
               label="ユーザー名"
               required
             />
             <v-text-field
               v-model="pass"
               class="mb-16"
-              :rules="nameRules"
               label="パスワード"
               required
             />
@@ -25,7 +23,6 @@
                 large
                 class="font-weight-bold text-h6 pa-4 mb-4"
                 elevation="0"
-                @click="validate"
               >
                 ログイン
               </v-btn>
@@ -38,7 +35,6 @@
                 large
                 class="font-weight-bold text-h6 pa-4 primary--text"
                 elevation="0"
-                @click="validate"
               >
                 新規登録
               </v-btn>
