@@ -65,7 +65,7 @@ export default {
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
           warning: '#F1305F', // pink
-          error: colors.deepOrange.accent4,
+          error: '#F1305F',
           success: colors.green.accent3,
           gray400: '#BDBDBD', // gray-thin
           gray300: '#F0F0F0' // gray-thin02
