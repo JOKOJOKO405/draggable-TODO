@@ -74,7 +74,7 @@ export default defineComponent({
 
     const passRules = [
       (v: any) => !!v || '入力必須項目です',
-      (v: any) => (v && v.length < 13) || '12文字以内の半角英数字で入力してください',
+      (v: any) => /^[\w-]{8,12}$/.test(v) || '8文字以上12文字以内の半角英数字で入力してください',
       (v: any) => {
         const regex = /^[A-Za-z0-9]*$/
         return regex.test(v) || '半角英数字で入力してください'
