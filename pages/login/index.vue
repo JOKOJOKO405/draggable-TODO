@@ -54,7 +54,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, SetupContext } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   setup (_, { root }) {
@@ -81,6 +81,7 @@ export default defineComponent({
       }
     ]
 
+    // TODO バリデーションチェックあとで検証
     const validateForm = () => {
       const target: any = form.value
       console.debug(target)
