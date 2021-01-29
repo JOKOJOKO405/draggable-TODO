@@ -1,5 +1,5 @@
 <template>
-  <v-btn fab color="primary" elevation="0" class="add-btn">
+  <v-btn fab color="primary" elevation="0" class="add-btn" @click="onClick">
     <v-icon large>mdi-plus-thick</v-icon>
   </v-btn>
 </template>
@@ -8,7 +8,15 @@
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup(_, { root }) {}
+  props: {
+    onClick: {
+      type: Function,
+      default: () => {}
+    }
+  },
+  setup(_, { root }) {
+
+  }
 })
 </script>
 
