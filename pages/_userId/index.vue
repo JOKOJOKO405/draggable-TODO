@@ -21,7 +21,10 @@
     <v-container>
       <Card />
     </v-container>
-    <AddCardBtn />
+    <AddCardBtn :on-click="addCard" />
+    <CardDialog
+      :is-open="isOpenAddCardDialog"
+    />
   </v-container>
 </template>
 
@@ -35,10 +38,17 @@ export default defineComponent({
 
     const userName = ref<string>('えいじ')
 
+    const isOpenAddCardDialog = ref(false)
+    const addCard = () => {
+      isOpenAddCardDialog.value = true
+    }
+
     return {
       name,
       pass,
-      userName
+      userName,
+      addCard,
+      isOpenAddCardDialog
     }
   }
 })
