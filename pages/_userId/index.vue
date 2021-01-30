@@ -7,7 +7,7 @@
         </v-icon>
       </v-avatar>
       <v-toolbar-title class="ml-2">{{ userName }}</v-toolbar-title>
-      <v-spacer></v-spacer>
+      <v-spacer />
       <v-btn icon color="warning">
         <v-icon>mdi-clock-alert</v-icon>
       </v-btn>
@@ -24,6 +24,7 @@
     <AddCardBtn :on-click="addCard" />
     <CardDialog
       :is-opened="isOpenAddCardDialog"
+      :cancel-action="() => isOpenAddCardDialog = false"
     />
   </v-container>
 </template>

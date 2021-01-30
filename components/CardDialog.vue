@@ -1,21 +1,18 @@
 <template>
   <v-row justify="center">
-    <v-dialog :value="isOpened" scrollable max-width="300px">
-      <v-card>
-        <v-card-title>Select Country</v-card-title>
-        <v-divider />
-        <v-card-text style="height: 300px">
-          <v-radio-group column />
-        </v-card-text>
-        <v-divider />
-        <v-card-actions>
-          <v-btn color="blue darken-1" text @click="dialog = false">
-            Close
-          </v-btn>
-          <v-btn color="blue darken-1" text @click="dialog = false">
-            Save
-          </v-btn>
-        </v-card-actions>
+    <v-dialog :value="isOpened" scrollable>
+      <v-card class="pa-8">
+        <v-row>
+          <v-spacer />
+          <v-icon class="gray400--text text-right" @click="cancelAction">
+            mdi-close-circle-outline
+          </v-icon>
+        </v-row>
+        <v-card-title
+          class="pa-0 primary--text font-weight-bold"
+        >
+          日付
+        </v-card-title>
       </v-card>
     </v-dialog>
   </v-row>
@@ -29,6 +26,14 @@ export default defineComponent({
     isOpened: {
       type: Boolean,
       default: false
+    },
+    cancelAction: {
+      type: Function,
+      default: () => {}
+    },
+    okAction: {
+      type: Function,
+      default: () => {}
     }
   }
 })
