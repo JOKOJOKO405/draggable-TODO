@@ -23,7 +23,7 @@
     </v-container>
     <AddCardBtn :on-click="addCard" />
     <CardDialog
-      :is-open="isOpenAddCardDialog"
+      :is-opened="isOpenAddCardDialog"
     />
   </v-container>
 </template>

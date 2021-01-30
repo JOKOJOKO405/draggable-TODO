@@ -1,6 +1,6 @@
 <template>
   <v-row justify="center">
-    <v-dialog v-model="isOpen" scrollable max-width="300px">
+    <v-dialog :value="isOpened" scrollable max-width="300px">
       <v-card>
         <v-card-title>Select Country</v-card-title>
         <v-divider />
@@ -22,17 +22,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@nuxtjs/composition-api'
+import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    isOpen: {
+    isOpened: {
       type: Boolean,
       default: false
-    }
-  },
-  setup (_, { root }) {
-    return {
     }
   }
 })
