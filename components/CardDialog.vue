@@ -61,23 +61,37 @@
             />
           </v-col>
         </v-row>
-        <v-card-title class="pa-0 primary--text font-weight-bold">
-          通知
-        </v-card-title>
-        <v-row no-gutters class="mb-8" align="center">
-          <v-col cols="2">
-            <v-text-field
-              type="number"
-              class="mr-4"
-            />
+        <v-row no-gutters class="mb-8">
+          <v-col cols="6">
+            <v-card-title class="pa-0 primary--text font-weight-bold">
+              通知
+            </v-card-title>
+            <v-row align="center">
+              <v-col cols="4">
+                <v-text-field
+                  type="number"
+                  class="mr-4"
+                />
+              </v-col>
+              <v-col cols="4">
+                <v-select
+                  :items="dates"
+                  class="mr-4"
+                />
+              </v-col>
+              <v-col cols="4">前から</v-col>
+            </v-row>
           </v-col>
-          <v-col cols="2">
-            <v-select
-              :items="dates"
-              class="mr-4"
-            />
+          <v-col cols="6">
+            <v-card-title class="pa-0 primary--text font-weight-bold">
+              LINE通知
+            </v-card-title>
+            <v-row align="center">
+              <v-col cols="12">
+                <v-switch v-model="lineSend" class="mr-4" label="LINEに送る" />
+              </v-col>
+            </v-row>
           </v-col>
-          <v-col cols="2">前から</v-col>
         </v-row>
       </v-form>
     </v-card>
@@ -85,7 +99,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
@@ -118,14 +132,16 @@ export default defineComponent({
         title: '吉田さん'
       }
     ]
+
+    const lineSend = ref(false)
     const cardColors = [
-      {name: 'white', style: 'border: 1px solid #BDBDBD !important;'},
-      {name: '#FFF9E4'},
-      {name: '#F4FFEC'},
-      {name: '#E9FFFA'},
-      {name: '#FFE9EE'},
-      {name: '#FFF3E9'},
-      {name: '#F7E9FF'}
+      { name: 'white', style: 'border: 1px solid #BDBDBD !important;' },
+      { name: '#FFF9E4' },
+      { name: '#F4FFEC' },
+      { name: '#E9FFFA' },
+      { name: '#FFE9EE' },
+      { name: '#FFF3E9' },
+      { name: '#F7E9FF '}
     ]
 
     const dates = [
@@ -136,7 +152,8 @@ export default defineComponent({
     return {
       demoChips,
       cardColors,
-      dates
+      dates,
+      lineSend
     }
   }
 })
