@@ -1,17 +1,6 @@
 <template>
   <v-card class="pa-4" max-width="320">
     <v-row no-gutters class="pb-2">
-      <v-col align-self="center">
-        <v-rating
-          length="5"
-          readonly
-          background-color="accent"
-          color="accent"
-          size="20"
-          value="3"
-          dense
-        />
-      </v-col>
       <v-spacer />
       <v-btn icon class="pa-0">
         <v-icon class="text-right" color="gray400">
@@ -30,10 +19,16 @@
       </v-btn>
     </v-row>
     <v-divider class="mb-2" />
-    <v-row no-gutters align="center">
-      <v-col cols="12" class="d-flex">
-        <span class="date-time warning--text font-weight-bold align-center">{{ date }}</span>
+    <v-row no-gutters>
+      <v-col cols="4" align-self="center">
+        <p class="date-time warning--text ma-0 font-weight-bold">
+          {{ date }}
+        </p>
+      </v-col>
+      <v-col cols="6" align-self="center">
         <span class="date-time warning--text font-weight-bold text-h2">{{ time }}</span>
+      </v-col>
+      <v-col cols="2" align-self="center">
         <v-icon class="date-time warning--text font-weight-bold text-h3 align-center">mdi-alert-rhombus</v-icon>
       </v-col>
     </v-row>
@@ -46,7 +41,7 @@ import { defineComponent, ref } from '@nuxtjs/composition-api'
 export default defineComponent({
   name: 'Card',
   setup(_, { root }) {
-    const date = ref<string>('2021.01.31')
+    const date = ref<string>('2021.12.31')
     const time = ref<string>('23:59')
 
     return {
