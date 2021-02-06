@@ -146,9 +146,11 @@ export default defineComponent({
           id: 3,
           title: '吉田さん'
         }]
-      },
+      }
     ]
 
+
+    // TODO 動いてない
     // カーソル表示
     const isGrabbing = ref(false)
     const top = ref('50%')
