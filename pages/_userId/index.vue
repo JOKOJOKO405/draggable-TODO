@@ -41,7 +41,7 @@ export default defineComponent({
 
     const isOpenAddCardDialog = ref(false)
     const addCard = () => {
-      isOpenAddCardDialog.value = true
+      isOpenAddCardDialog.value = !isOpenAddCardDialog.value
     }
 
     return {
