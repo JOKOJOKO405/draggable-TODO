@@ -1,12 +1,13 @@
 <template>
   <div>
-    <v-card v-for="(card, index) in cardDatas" id="`card_${index}`" :key="index" class="pa-4 pt-2" :style="cardPosition">
+    <v-card v-for="(card, index) in cardDatas" :key="index" class="pa-4 pt-2" :style="cardPosition">
       <v-row no-gutters class="pa-0 pb-2">
         <v-col
           cols="9"
           class="grabbingArea pa-0"
           @mousedown="onMouseDown"
           @mouseup="onMouseUp"
+          @onmousemove="onMouseMove"
           @dragstart="onDragStart"
         /></v-col>
         <v-col cols="3" class="px-0">
@@ -172,8 +173,8 @@ export default defineComponent({
     const onMouseDown = (event: any) => {
       isGrabbing.value = true
       console.debug('run')
-      shiftX.value = event.clientX - event.target.closest('#card').getBoundingClientRect().left
-      shiftY.value = event.clientY - event.target.closest('#card').getBoundingClientRect().top
+      shiftX.value = event.clientX - event.target.getBoundingClientRect().left
+      shiftY.value = event.clientY - event.target.getBoundingClientRect().top
       moveCard(event.clientX, event.clientY)
       document.addEventListener('onmousedown', onMouseDown)
     }
@@ -181,6 +182,10 @@ export default defineComponent({
     const onMouseUp = () => {
       isGrabbing.value = false
       document.removeEventListener('onmouseup', onMouseUp)
+    }
+
+    const onMouseMove = (event: any) => {
+      moveCard(event.clientX, event.clientY)
     }
 
     const moveCard = (leftP: number, topP: number) => {
@@ -196,6 +201,7 @@ export default defineComponent({
       editCard,
       deleteCard,
       onMouseDown,
+      onMouseMove,
       onMouseUp,
       cardPosition,
       onDragStart,
