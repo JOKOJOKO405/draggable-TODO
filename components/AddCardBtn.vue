@@ -1,5 +1,5 @@
 <template>
-  <v-btn fab color="primary" elevation="0" class="add-btn" @click="onClick">
+  <v-btn fab color="primary" elevation="0" class="add-btn" @click="openAddCardDialog">
     <v-icon large>mdi-plus-thick</v-icon>
   </v-btn>
 </template>
@@ -9,7 +9,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   props: {
-    onClick: {
+    openAddCardDialog: {
       type: Function,
       default: () => {}
     }
