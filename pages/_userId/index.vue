@@ -21,7 +21,7 @@
     <v-container>
       <Card />
     </v-container>
-    <AddCardBtn :on-click="addCard" />
+    <AddCardBtn :open-add-card-dialog="addCard" />
     <CardDialog
       :is-opened="isOpenAddCardDialog"
       :cancel-action="() => isOpenAddCardDialog = false"
