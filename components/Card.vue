@@ -1,14 +1,10 @@
 <template>
   <div>
-    <v-card v-for="(card, index) in cardDatas" :key="index" class="pa-4 pt-2" :style="cardPosition">
+    <v-card v-for="(card, index) in cardDatas" max-width="360" :key="index" class="pa-4 pt-2 mb-4">
       <v-row no-gutters class="pa-0 pb-2">
         <v-col
           cols="9"
           class="grabbingArea pa-0"
-          @mousedown="onMouseDown"
-          @mouseup="onMouseUp"
-          @onmousemove="onMouseMove"
-          @dragstart="onDragStart"
         /></v-col>
         <v-col cols="3" class="px-0">
           <v-btn small icon class="pa-0">
@@ -181,7 +177,7 @@ export default defineComponent({
 
     const onMouseUp = () => {
       isGrabbing.value = false
-      document.removeEventListener('onmouseup', onMouseUp)
+      document.removeEventListener('onmousedown', onMouseDown)
     }
 
     const onMouseMove = (event: any) => {
