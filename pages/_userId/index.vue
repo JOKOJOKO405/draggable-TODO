@@ -2,9 +2,7 @@
   <v-container class="pa-0" fluid>
     <v-app-bar color="white" elevation="1">
       <v-avatar color="accent" size="32">
-        <v-icon dark>
-          mdi-account-circle
-        </v-icon>
+        <v-icon dark> mdi-account-circle </v-icon>
       </v-avatar>
       <v-toolbar-title class="ml-2">{{ userName }}</v-toolbar-title>
       <v-spacer />
@@ -22,10 +20,7 @@
       <Card />
     </v-container>
     <AddCardBtn :open-add-card-dialog="addCard" />
-    <CardDialog
-      :is-opened="isOpenAddCardDialog"
-      :cancel-action="() => isOpenAddCardDialog = false"
-    />
+    <CardDialog :is-opened="isOpenAddCardDialog" :cancel-action="() => (isOpenAddCardDialog = false)" />
   </v-container>
 </template>
 
@@ -33,7 +28,7 @@
 import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
-  setup (_, { root }) {
+  setup(_, { root }) {
     const name = ref<string>('ユーザー名')
     const pass = ref<string | number>('')
 
