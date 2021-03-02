@@ -51,7 +51,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, computed } from '@nuxtjs/composition-api'
+import { defineComponent, ref } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'Card',
@@ -147,18 +147,6 @@ export default defineComponent({
     ]
 
 
-    // TODO 動いてない
-    // カーソル表示
-    const isGrabbing = ref(false)
-    const top = ref('50%')
-    const left = ref('50%')
-    const shiftX = ref(0)
-    const shiftY = ref(0)
-    // カードのポジション
-    const cardPosition = computed(() => {
-      return `position:absolute; left:${left.value}; top:${top.value}; cursor: ${isGrabbing.value ? 'grabbing' : 'grab'}`
-    })
-
     const editCard = () => {
       console.debug('編集処理')
     }
@@ -166,41 +154,12 @@ export default defineComponent({
       console.debug('削除処理')
     }
 
-    const onMouseDown = (event: any) => {
-      isGrabbing.value = true
-      console.debug('run')
-      shiftX.value = event.clientX - event.target.getBoundingClientRect().left
-      shiftY.value = event.clientY - event.target.getBoundingClientRect().top
-      moveCard(event.clientX, event.clientY)
-      document.addEventListener('onmousedown', onMouseDown)
-    }
-
-    const onMouseUp = () => {
-      isGrabbing.value = false
-      document.removeEventListener('onmousedown', onMouseDown)
-    }
-
-    const onMouseMove = (event: any) => {
-      moveCard(event.clientX, event.clientY)
-    }
-
-    const moveCard = (leftP: number, topP: number) => {
-      left.value = leftP - shiftX.value + 'px'
-      top.value = topP - shiftY.value + 'px'
-    }
-
-    const onDragStart = () => false
 
     return {
       date,
       time,
       editCard,
       deleteCard,
-      onMouseDown,
-      onMouseMove,
-      onMouseUp,
-      cardPosition,
-      onDragStart,
       cardDatas
     }
   }
